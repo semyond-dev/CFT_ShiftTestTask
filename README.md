@@ -1,1 +1,45 @@
-# CFT_ShiftTestTask
+
+# Утилита фильтрации содержимого файлов.
+# Описание
+Тестовое задание для направление Java в ЦФТ ШИФТ.
+
+## Инструкция по запуску
+
+### Необходимо открыть папку проекта и скомпилировать программу: 
+
+для Windows:
+```terminal
+gradlew build
+```
+
+для Linux:
+```terminal
+./gradlew build
+```
+
+### Запуск приложение
+
+Перейти по пути:
+```terminal
+cd build/libs/
+```
+
+Запустить приложение: 
+```terminal
+java -jar .\build\libs\CFT_ShiftTestTask-1.0-SNAPSHOT.jar
+```
+
+### Флаги
+Реализованные флаги соответствуют предоставленному ТЗ:
+| Флаг | Свойства |
+|------|----------|
+| -o или --output | Указать путь для результирующих файлов|
+| -p или --prefix | Добавить префикс к результирующим файлам|
+| -s или --simple-statistic | Отобразить простую статистику по данным |
+| -f или --full-statistic| Отобразить полную статистику по данным (не включает простую статистику)|
+| -a или --append| Дописывать результаты в конец файла |
+
+## Инструменты которые применялись при разработке 
+- Java 17.0.11 2024-04-16 LTS ([Amazon Corretto 17.0](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html))
+- Gradle 8.5
+- [Библиотека "commons-cli"](https://www.mvnrepository.com/artifact/commons-cli/commons-cli)
