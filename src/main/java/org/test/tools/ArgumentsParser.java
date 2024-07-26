@@ -97,7 +97,7 @@ public class ArgumentsParser {
         Option filenamePrefixArgument = new Option("p", "prefix", true, "Output filename prefix");
         options.addOption(filenamePrefixArgument);
 
-        Option filenameArgument = new Option("o", "output-path", true, "Output path");
+        Option filenameArgument = new Option("o", "output", true, "Output path");
         options.addOption(filenameArgument);
         return options;
     }
