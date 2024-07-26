@@ -1,0 +1,87 @@
+package org.test.storages;
+
+import org.test.tools.ArgumentsParser;
+import org.test.interfaces.StorageInterface;
+
+import java.io.*;
+import java.math.BigInteger;
+
+public class FileStorage implements StorageInterface {
+    private static FileStorage instance;
+    private static final ArgumentsParser argumentsParser = ArgumentsParser.getInstance();
+    private static File floats_file;
+    private static File integers_file;
+    private static File strings_file;
+
+    private FileStorage() {
+    }
+
+    public static FileStorage getInstance() {
+        if (instance == null) {
+            instance = new FileStorage();
+        }
+        return instance;
+    }
+
+    @Override
+    public void init() {
+        if (floats_file == null) {
+            floats_file = new File(argumentsParser.getOutputFloatPath());
+            if (floats_file.exists() && !argumentsParser.isAppendEnabled()) {
+                cleanFile(floats_file);
+            }
+        }
+
+        if (integers_file == null) {
+            integers_file = new File(argumentsParser.getOutputIntegerPath());
+            if (integers_file.exists() && !argumentsParser.isAppendEnabled()) {
+                cleanFile(integers_file);
+            }
+        }
+
+        if (strings_file == null) {
+            strings_file = new File(argumentsParser.getOutputStringPath());
+            if (strings_file.exists() && !argumentsParser.isAppendEnabled()) {
+                cleanFile(strings_file);
+            }
+        }
+    }
+
+    @Override
+    public void storeString(String value) {
+        appendStringToFile(value, strings_file);
+    }
+
+    @Override
+    public void storeInteger(BigInteger value) {
+        appendStringToFile(value.toString(), integers_file);
+    }
+
+    @Override
+    public void storeFloat(Float value) {
+        appendStringToFile(value.toString(), floats_file);
+    }
+
+    private void appendStringToFile(String stringToAppend, File file) {
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+            bufferedWriter.write(stringToAppend + "\n");
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("Cant append string to file");
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void cleanFile(File file) {
+        try {
+            PrintWriter printWriter = new PrintWriter(file);
+            printWriter.write("");
+            printWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File for clean not found");
+            System.out.println(e.getMessage());
+        }
+    }
+
+}
