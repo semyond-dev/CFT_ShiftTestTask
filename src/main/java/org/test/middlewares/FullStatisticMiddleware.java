@@ -27,11 +27,11 @@ public class FullStatisticMiddleware extends StringMiddleware implements Statist
     private BigInteger avgInt = new BigInteger("0");
     private int countInt = 0;
 
-    private Float minFloat = null;
-    private Float maxFloat = null;
-    private Float sumFloat = 0.0F;
-    private Float avgFloat = 0.0F;
-    private int countFloat = 0;
+    private Double minDouble = null;
+    private Double maxDouble = null;
+    private Double sumDouble = 0.0;
+    private Double avgDouble = 0.0;
+    private int countDouble = 0;
 
     private Integer minLength = null;
     private Integer maxLength = null;
@@ -56,16 +56,16 @@ public class FullStatisticMiddleware extends StringMiddleware implements Statist
                     avgInt = sumInt.divide(BigInteger.valueOf(countInt));
                     break;
 
-                case FLOAT_TYPE:
-                    if (minFloat == null) minFloat = Float.parseFloat(text);
-                    else minFloat = Math.min(minFloat, Float.parseFloat(text));
+                case DOUBLE_TYPE:
+                    if (minDouble == null) minDouble = Double.parseDouble(text);
+                    else minDouble = Math.min(minDouble, Double.parseDouble(text));
 
-                    if (maxFloat == null) maxFloat = Float.parseFloat(text);
-                    else maxFloat = Math.max(maxFloat, Float.parseFloat(text));
+                    if (maxDouble == null) maxDouble = Double.parseDouble(text);
+                    else maxDouble = Math.max(maxDouble, Double.parseDouble(text));
 
-                    sumFloat = sumFloat + Float.parseFloat(text);
-                    countFloat++;
-                    avgFloat = sumFloat / countFloat;
+                    sumDouble = sumDouble + Double.parseDouble(text);
+                    countDouble++;
+                    avgDouble = sumDouble / countDouble;
                     break;
 
                 case STRING_TYPE:
@@ -102,15 +102,15 @@ public class FullStatisticMiddleware extends StringMiddleware implements Statist
             System.out.println();
         }
 
-        if (countFloat > 0) {
+        if (countDouble > 0) {
             System.out.println();
-            System.out.println("Floats type statistic:");
+            System.out.println("Doubles type statistic:");
             System.out.println();
 
-            System.out.println("Minimal float value " + minFloat);
-            System.out.println("Maximal float value " + maxFloat);
-            System.out.println("Sum float value " + sumFloat);
-            System.out.println("Avg float value " + avgFloat);
+            System.out.println("Minimal double value " + minDouble);
+            System.out.println("Maximal double value " + maxDouble);
+            System.out.println("Sum double value " + sumDouble);
+            System.out.println("Avg double value " + avgDouble);
             System.out.println();
         }
 

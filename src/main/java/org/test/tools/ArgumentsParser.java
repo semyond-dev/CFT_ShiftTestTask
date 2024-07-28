@@ -28,7 +28,7 @@ public class ArgumentsParser {
 
     private String outputFilePath = "";
     private String outputIntegerPath = null;
-    private String outputFloatPath = null;
+    private String outputDoublePath = null;
     private String outputStringPath = null;
 
     private String formatPath(String InPath) {
@@ -71,9 +71,8 @@ public class ArgumentsParser {
         return outputIntegerPath;
     }
 
-
-    public String getOutputFloatPath() {
-        return outputFloatPath;
+    public String getOutputDoublePath() {
+        return outputDoublePath;
     }
 
     public String getOutputStringPath() {
@@ -158,7 +157,7 @@ public class ArgumentsParser {
         }
 
         outputIntegerPath = getOutputPath("integers");
-        outputFloatPath = getOutputPath("floats");
+        outputDoublePath = getOutputPath("floats");
         outputStringPath = getOutputPath("strings");
 
     }

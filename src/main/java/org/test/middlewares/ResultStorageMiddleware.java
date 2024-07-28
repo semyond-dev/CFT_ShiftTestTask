@@ -20,7 +20,7 @@ public class ResultStorageMiddleware extends StringMiddleware {
         Type.Types type = Type.getType(text);
         switch (type) {
             case INT_TYPE -> storage.storeInteger(new BigInteger(text));
-            case FLOAT_TYPE -> storage.storeFloat(Float.parseFloat(text));
+            case DOUBLE_TYPE -> storage.storeDouble(Double.parseDouble(text));
             case STRING_TYPE -> storage.storeString(text);
 
             default -> {

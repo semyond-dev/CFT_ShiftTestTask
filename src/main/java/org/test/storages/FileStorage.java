@@ -9,7 +9,7 @@ import java.math.BigInteger;
 public class FileStorage implements StorageInterface {
     private static FileStorage instance;
     private static final ArgumentsParser argumentsParser = ArgumentsParser.getInstance();
-    private static File floats_file;
+    private static File doubles_file;
     private static File integers_file;
     private static File strings_file;
 
@@ -25,10 +25,10 @@ public class FileStorage implements StorageInterface {
 
     @Override
     public void init() {
-        if (floats_file == null) {
-            floats_file = new File(argumentsParser.getOutputFloatPath());
-            if (floats_file.exists() && !argumentsParser.isAppendEnabled()) {
-                cleanFile(floats_file);
+        if (doubles_file == null) {
+            doubles_file = new File(argumentsParser.getOutputDoublePath());
+            if (doubles_file.exists() && !argumentsParser.isAppendEnabled()) {
+                cleanFile(doubles_file);
             }
         }
 
@@ -58,8 +58,8 @@ public class FileStorage implements StorageInterface {
     }
 
     @Override
-    public void storeFloat(Float value) {
-        appendStringToFile(value.toString(), floats_file);
+    public void storeDouble(Double value) {
+        appendStringToFile(value.toString(), doubles_file);
     }
 
     private void appendStringToFile(String stringToAppend, File file) {
