@@ -40,6 +40,6 @@ java -jar .\build\libs\CFT_ShiftTestTask-1.0-SNAPSHOT.jar
 | -a или --append| Дописывать результаты в конец файла |
 
 ## Инструменты которые применялись
-- Java 17.0.11 2024-04-16 LTS ([Amazon Corretto 17.0](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html))
+- Java SE 17.0.11 2024-04-16 LTS ([Amazon Corretto 17.0](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html))
 - Gradle 8.5
 - [Библиотека "commons-cli"](https://www.mvnrepository.com/artifact/commons-cli/commons-cli)
