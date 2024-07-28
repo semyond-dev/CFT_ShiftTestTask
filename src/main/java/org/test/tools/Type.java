@@ -14,9 +14,9 @@ public class Type {
             return Types.DOUBLE_TYPE;
         } else if (checkIsInteger(text)) {
             return Types.INT_TYPE;
-        } else {
-            return Types.STRING_TYPE;
         }
+
+        return Types.STRING_TYPE;
     }
 
     private static boolean checkIsInteger(String str) {
