@@ -5,13 +5,13 @@ import java.math.BigInteger;
 public class Type {
     public enum Types {
         INT_TYPE,
-        FLOAT_TYPE,
+        DOUBLE_TYPE,
         STRING_TYPE,
     }
 
     public static Types getType(String text) {
-        if (checkIsFloat(text)) {
-            return Types.FLOAT_TYPE;
+        if (checkIsDouble(text)) {
+            return Types.DOUBLE_TYPE;
         } else if (checkIsInteger(text)) {
             return Types.INT_TYPE;
         } else {
@@ -28,9 +28,9 @@ public class Type {
         return false;
     }
 
-    private static boolean checkIsFloat(String str) {
+    private static boolean checkIsDouble(String str) {
         try {
-            Float.parseFloat(str);
+            Double.parseDouble(str);
             if (str.contains("."))
                 return true;
         } catch (NumberFormatException ignored) {

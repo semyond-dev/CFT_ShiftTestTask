@@ -42,9 +42,9 @@ public class SimpleStatisticMiddleware extends StringMiddleware implements Stati
         return 0;
     }
 
-    public static int getFloatsCount() {
-        if (typesCount.containsKey(Type.Types.FLOAT_TYPE)) {
-            return typesCount.get(Type.Types.FLOAT_TYPE);
+    public static int getDoublesCount() {
+        if (typesCount.containsKey(Type.Types.DOUBLE_TYPE)) {
+            return typesCount.get(Type.Types.DOUBLE_TYPE);
         }
         return 0;
     }
@@ -61,7 +61,7 @@ public class SimpleStatisticMiddleware extends StringMiddleware implements Stati
         System.out.println();
         System.out.println("Total strings sorted: " + getStringsCount());
         System.out.println("Total integers sorted: " + getIntegersCount());
-        System.out.println("Total floats sorted: " + getFloatsCount());
+        System.out.println("Total doubles sorted: " + getDoublesCount());
         System.out.println();
     }
 }
