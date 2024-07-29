@@ -43,3 +43,6 @@ java -jar .\build\libs\CFT_ShiftTestTask-1.0-SNAPSHOT.jar
 - Java SE 17.0.11 2024-04-16 LTS ([Amazon Corretto 17.0](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html))
 - Gradle 8.5
 - [Библиотека "commons-cli"](https://www.mvnrepository.com/artifact/commons-cli/commons-cli)
+
+## Что можно добавить/изменить
+- За место Scanner использовать потоки ввиду более высокой производительности при работе с большими файлами. По факту парсер здесь не нужен, только разделение построчно - вполне достаточно потока.
