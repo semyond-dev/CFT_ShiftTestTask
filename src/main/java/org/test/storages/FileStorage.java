@@ -63,7 +63,8 @@ public class FileStorage implements StorageInterface {
     }
 
     private void appendStringToFile(String stringToAppend, File file) {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
+        try (FileWriter fileWriter = new FileWriter(file, true);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             bufferedWriter.write(stringToAppend + "\n");
         } catch (IOException e) {
             System.out.println("can't append string to file");
