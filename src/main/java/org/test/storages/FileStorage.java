@@ -63,23 +63,19 @@ public class FileStorage implements StorageInterface {
     }
 
     private void appendStringToFile(String stringToAppend, File file) {
-        try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
             bufferedWriter.write(stringToAppend + "\n");
-            bufferedWriter.close();
         } catch (IOException e) {
-            System.out.println("Cant append string to file");
+            System.out.println("can't append string to file");
             System.out.println(e.getMessage());
         }
     }
 
     private void cleanFile(File file) {
-        try {
-            PrintWriter printWriter = new PrintWriter(file);
+        try (PrintWriter printWriter = new PrintWriter(file)) {
             printWriter.write("");
-            printWriter.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File for clean not found");
+            System.out.println("file \"" + file.getName() + "\" not found");
             System.out.println(e.getMessage());
         }
     }
